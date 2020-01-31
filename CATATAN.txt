@@ -1,0 +1,65 @@
+MovieList App
+author: ilham surya
+28-jan-2020
+
+Installing Some Dependency
+Express
+Body Parser
+Mongoose
+Concurrently 
+
+NOTES:
+1) Reinstalling NPM or NPX
+    npm install npm@latest -g
+
+2) There is 2 side Client Site and Server Site
+    so need to run 2 server simulatenously
+        ex:  "dev": "concurrently \"npm run server\" \"npm run client\ " " => npm run dev
+    Dont forget to add the client scripts in JSON
+        ex:  "client": "npm start --prefix client"
+            t
+3) Cant read backend data because of proxy
+    change proxy in package.JSON
+        from   "proxy": "https://localhost:5000",
+            to   "proxy": "http://localhost:5000",
+
+4)  Use _id instead of id because mongoDB automaticly generate the id, so instead create new one. access it will be more comfortable 
+
+
+BACKEND: Use Express as middleware, body-parser to read and mongoDB as DB
+STEP 1: Create MongoDB Cluster etc
+STEP 2: Config MongoDB inside config/keys, set the URI
+STEP 3: Setup your server.js, run nodemon server.js
+STEP 4: Create API Request in routes/api/items.js {GET/DELETE/etc}
+
+FRONTEND: REACT
+STEP 1: Create CLIENTSIDE APP in folder client 
+    syntax: $ npm i -g create-react-app
+STEP 2: Create Application Navbar component/AppNav.js
+and MovieList component/MovieList.js
+
+application state management: REDUX
+STEP 1: Install Some Dependency 
+        npm i redux react-redux redux-thunk
+STEP 2: Create Entry Point for redux
+        src/store.js
+STEP 3: Connect your store to app.js using provider from                REDUX
+STEP 4: Create Root reducer reducers/index.js
+            to combine all reducers that exist
+STEP 5: Create Actions (add,delete) actions/types.js
+STEP 6: Crete itemModel (create model & toggle for add Item and delete Item)
+
+Connecting Backend To FrontEnd
+STEP 1: Install Axios
+            npm i Axios
+STEP 2: 
+
+HEROKU
+heroku login
+npm i -g heroku
+heroku create
+git init
+git add .
+git commit -am 'Version 1'
+heroku git:remote -a infinite-springs-40975 (in deploy dashboard)
+git push heroku master
